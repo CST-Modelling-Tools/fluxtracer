@@ -1,0 +1,48 @@
+Step 1
+Launch WinSCP and connect to Cy-Tera
+Copy the folder FluxTracerQ to the project directory ("/gpfs/data/cypre365")
+
+
+Step 2
+Launch PuTTY and connect to Cy-Tera
+Run the following commands
+
+ns // show status of nodes
+salloc -N1 --time=3:00:00 // allocate one node
+
+module load Qt5/5.6.0-foss-2016a // load Qt framework
+module load libpng/1.6.16-foss-2015a // some dependencies
+
+cd /gpfs/data/cypre365/FluxTracerQ // change directory
+mkdir release // make directory
+cd release // stay in release directory
+
+qmake ../source/FluxTracerQ.pro // generate make files
+make -j6 // run make files, option j for parallel build
+
+
+Step 3
+Use WinSCP to create the file "input.xml" in the directory "release"
+
+<?xml version="1.0" encoding="UTF-8"?>
+<FluxTracer version="0.3" inputPath="/gpfs/data/cypre365" outputPath="/gpfs/data/cypre365/FluxTracerQ/release" threads="6">
+    <Rays folder="ASTRI_52_POINTS/Point_07"/>
+    <SphericalReceiver center="0., 95., 0." rMin="0." rMax="12." rDivs="50" output="SphericalReceiver.csv"/>
+    <VoxelTraversal cornerMin="-16., 90., -16." cornerMax="16., 100., 16." dimensions="60, 60, 60" output="FluxTracerOutput.vtk"/>
+</FluxTracer>
+
+
+Step 4
+Use PuTTY to run FluxTracer
+
+FluxTracerKernel/FluxTracerKernel
+
+
+Step 5
+To run in a new session use
+
+salloc -N1 --time=3:00:00
+module load Qt5/5.6.0-foss-2016a
+module load libpng/1.6.16-foss-2015a
+cd /gpfs/data/cypre365/FluxTracerQ/release
+FluxTracerKernel/FluxTracerKernel -i=input.xml -m=1 -n=0

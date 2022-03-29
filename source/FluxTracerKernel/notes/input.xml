@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FluxTracer version="0.3" inputPath="E:/"
+    outputPath="C:/Users/m.blanco/Documents/OpenSource/HighFluxFacility" threads="24">
+    <Rays folder="Annual_Pentakomo"/>
+    <AngularMatrix axis="-0.0119702, 0.212014, 0.977193"
+    azimuthMin="-3.14159" azimuthMax="3.14159" azimuthDivs="360"
+    zenithMin="0" zenithMax="1.5708" zenithDivs="90"
+    output="AngularMatrix.csv" />
+</FluxTracer>
+
+
+
+
+<!-- comments
+
+
+<AngleWithPlane normal="1., 0., 0." angleMin="-1.6" angleMax="1.6" angleDivs="50" output="AngleWithPlaneAxisX.csv"/>
+<AngleWithPlane normal="0., 1., 0." angleMin="-1.6" angleMax="1.6" angleDivs="50" output="AngleWithPlaneAxisY.csv"/>
+<AngleWithPlane normal="0., 0., 1." angleMin="-1.6" angleMax="1.6" angleDivs="50" output="AngleWithPlaneAxisZ.csv"/>
+
+
+    <VoxelTraversal cornerMin="-16., 90., -16." cornerMax="16., 100., 16." dimensions="60, 60, 60" output="VoxelTraversal.vtk"/>
+    <VoxelTraversal cornerMin="-0.03, 0.47, -1." cornerMax="0.03, 0.53, 1." dimensions="50, 50, 10" output="VoxelTraversal.vtk"/>
+
+    <SphericalReceiver center="0., 95., 0." rMin="0." rMax="12." rDivs="50" output="SphericalReceiver.csv"/>
+    <SphericalReceiverAngular center="0., 95., 0." phiDivs="32" thetaDivs="16" rMin="0." rMax="12." rDivs="50" eta="0.96" output="SphericalReceiverAngular.csv"/>
+    <SphericalReceiverVoxelized center="0., 95., 0." cornerMin="-16., 90., -16." cornerMax="16., 100., 16." dimensions="60, 60, 60" output="SphericalReceiver.vtk"/>
+
+    <TubularReceiver center="0., 0.5, 0." direction="0., 0., 1." rMin="0." rMax="0.05" rDivs="50" output="TubularReceiver.csv"/>
+    <TubularReceiverAngular center="0., 0.5, 0." direction="0., 0., 1." normal="1., 0., 0." phiDivs="64" hMin="-1." hMax="1." hDivs="10" rMin="0." rMax="0.05" rDivs="50" eta="0.90" output="TubularReceiverAngular.csv"/>
+    <TubularReceiverVoxelized center="0., 0.5, 0." direction="0., 0., 1." cornerMin="-0.02, 0.48, -1." cornerMax="0.02, 0.52, 1." dimensions="50, 50, 10" output="TubularReceiver.vtk"/>
+
+    <CylindricalReceiver center="0., 95., 0." dMin="0.1" dMax="20." dDivs="100" hMin="0." hMax="20." hDivs="200" output="CylindricalReceiver.csv"/>
+
+    <FluxPlane xMin="-30." xMax="30." xDivs="60" yMin="-50." yMax="50." yDivs="100" z="90." output="FluxPlane.vtk"/>
+    <FluxCylinder rho="10." phiDivs="24" zMin="80." zMax="110." zDivs="50" output="FluxCylinder.vtk"/>
+
+    <HeliostatAngles axis="0., 0., -1." aMin="0." aMax="60." rDivs="30" output="HeliostatAngles.csv"/>
+-->
+
+
+
+<!-- comments
+<FluxTracer version="0.3" inputPath="C:/Neo/Programming" outputPath="" threads="6">
+    <Rays folder="Rays/Point_07"/>
+    <SphericalReceiverAngular center="0., 95., 0." phiDivs="32" thetaDivs="16" rMin="0." rMax="12." rDivs="50" eta="0.96" output="SphericalReceiverAngular.csv"/>
+</FluxTracer>
+
+<FluxTracer version="0.3" inputPath="Z:/" outputPath="C:/Neo/Programming" threads="6">
+    <Rays folder="Tonatiuh_run_Parabolic_Trough_300Mrays"/>
+    <TubularReceiverAngular center="0., 0.5, 0." direction="0., 0., 1." normal="1., 0., 0." phiDivs="64" hMin="-4." hMax="4." hDivs="10" rMin="0." rMax="0.2" rDivs="50" eta="0.96" output="TubularReceiverAngular.csv"/>
+</FluxTracer>
+
+<FluxTracer version="0.3" inputPath="C:/Users/k.milidonis/Desktop/Pentakomo/BeamDown" outputPath="" threads="6">
+    <Rays folder="full_field"/>
+    <HeliostatAngles axis="-0.0129805, 0.212167, 0.977147" aMin="0." aMax="60." aDivs="30" output="HeliostatAngles.csv"/>
+</FluxTracer>
+
+<ExtrudedReceiver version="0.3" inputPath="C:/Neo/Programming" outputPath="">
+    <Rays file="FluxCylinder.vtk"/>
+    <Disk rMin="0.1" rMax="8." rDivs="2" phiDivs="8" zMin="85." zMax="105."/>
+    <Interception min="0.96" output="Extruded96.vtk"/>
+</ExtrudedReceiver>
+-->
